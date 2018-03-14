@@ -1,21 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-int findMinLen(string arr[], int n)
-{
-	int min = INT_MAX;
-	for (int i=0; i<=n-1; i++)
-		if (arr[i].length() < min)
-			min = arr[i].length();
-	return(min);
-}
-bool allContPref(string arr[], int n, string str,int start, int end)
-{
-	for (int i=0; i<=n-1; i++)
-		for (int j=start; j<=end; j++)
-			if (arr[i][j] != str[j])
-				return (false);
-	return (true);
-}
 string comPref(string arr[], int n)
 {
 	int index = findMinLen(arr, n);
@@ -34,6 +18,22 @@ string comPref(string arr[], int n)
 	}
 
 	return (pref);
+}
+bool allContPref(string arr[], int n, string str,int start, int end)
+{
+	for (int i=0; i<=n-1; i++)
+		for (int j=start; j<=end; j++)
+			if (arr[i][j] != str[j])
+				return (false);
+	return (true);
+}
+int findMinLen(string arr[], int n)
+{
+	int min = INT_MAX;
+	for (int i=0; i<=n-1; i++)
+		if (arr[i].length() < min)
+			min = arr[i].length();
+	return(min);
 }
 int main()
 {
